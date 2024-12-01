@@ -56,7 +56,7 @@ export type ModuleOptions = SvgLoaderOptions & {
 
 const nuxtSvgo: NuxtModule<ModuleOptions> = defineNuxtModule({
   meta: {
-    name: 'nuxt-svgo',
+    name: '@foxyimg/nuxt-svg-icon',
     configKey: 'svgo',
     compatibility: {
       // Add -rc.0 due to issue described in https://github.com/nuxt/framework/issues/6699
@@ -70,7 +70,7 @@ const nuxtSvgo: NuxtModule<ModuleOptions> = defineNuxtModule({
     svgoConfig: undefined,
     global: true,
     customComponent: 'NuxtIcon',
-    componentPrefix: 'svgo',
+    componentPrefix: 'svg-icon',
   },
   async setup(options) {
     const { resolvePath, resolve } = createResolver(import.meta.url)
@@ -92,7 +92,7 @@ const nuxtSvgo: NuxtModule<ModuleOptions> = defineNuxtModule({
         path: await resolvePath(options.autoImportPath),
         global: options.global,
         extensions: ['svg'],
-        prefix: options.componentPrefix || 'svgo',
+        prefix: options.componentPrefix || 'svg-icon',
         watch: true,
       })
     }
