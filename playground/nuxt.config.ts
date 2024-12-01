@@ -3,6 +3,7 @@ import { defaultSvgoConfig } from '../src/module'
 
 export default defineNuxtConfig({
   modules: [NuxtSVGO],
+
   svgo: {
     explicitImportsOnly: false,
     svgoConfig: {
@@ -26,4 +27,6 @@ export default defineNuxtConfig({
       ],
     },
   },
+
+  compatibilityDate: '2024-12-01',
 })

@@ -1,20 +1,20 @@
 <template>
   <div>
     Nuxt module playground!
-    <Home />
-    <svgo-home style="color: green; font-size: 40px" />
+    <Home width="32px" fill="#F00" />
+    <svg-icon-home width="32px" fill="green" />
     sweet
-    <svgo-home filled :fontControlled="false" />
+    <svg-icon-home width="32px" />
   </div>
   <div>
     url encoded svg:
-    <img :src="HomeUri" />
+    <img :src="HomeUri" width="32px" />
   </div>
   <div>
     with clashing ids (left visible, right invisible):
     <br />
-    <svgo-homeid />
-    <svgo-sub-homeid />
+    <svg-icon-homeid width="32px" />
+    <svg-icon-sub-homeid width="32px" />
   </div>
 </template>
 
