@@ -1,6 +1,6 @@
 {
   "name": "@foxyimg/nuxt-svg-icon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Nuxt module to load optimized SVG files as Vue components",
   "keywords": [
     "nuxt",

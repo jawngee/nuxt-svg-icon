@@ -317,9 +317,9 @@ This project is [MIT](https://github.com/cpsoinos/nuxt-svgo/blob/main/LICENSE) l
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/@foxyimg/url-builder/latest.svg?style=flat-square
-[npm-version-href]: https://npmjs.com/package/@foxyimg/url-builder
-[npm-downloads-src]: https://img.shields.io/npm/dt/@foxyimg/url-builder.svg?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/@foxyimg/url-builder
-[license-src]: https://img.shields.io/npm/l/@foxyimg/url-builder.svg?style=flat-square
-[license-href]: https://github.com/cpsoinos/@foxyimg/url-builder/blob/main/LICENSE
+[npm-version-src]: https://img.shields.io/npm/v/@foxyimg/nuxt-svg-icon/latest.svg?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@foxyimg/nuxt-svg-icon
+[npm-downloads-src]: https://img.shields.io/npm/dt/@foxyimg/nuxt-svg-icon.svg?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@foxyimg/nuxt-svg-icon
+[license-src]: https://img.shields.io/npm/l/@foxyimg/nuxt-svg-icon.svg?style=flat-square
+[license-href]: https://github.com/cpsoinos/@foxyimg/nuxt-svg-icon/blob/main/LICENSE
