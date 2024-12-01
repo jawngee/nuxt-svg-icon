@@ -1,6 +1,6 @@
 {
-  "name": "nuxt-svgo",
-  "version": "4.0.2",
+  "name": "@foxyimg/nuxt-svg-icon",
+  "version": "1.0.0",
   "description": "Nuxt module to load optimized SVG files as Vue components",
   "keywords": [
     "nuxt",
@@ -12,7 +12,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cpsoinos/nuxt-svgo.git"
+    "url": "https://github.com/jawngee/nuxt-svg-icon.git"
   },
   "license": "MIT",
   "type": "module",
@@ -34,10 +34,10 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,vue,md,mdx,gql,graphql,json,yml,yaml}\"",
-    "lint": "eslint --ext .js,.ts, --fix .",
+    "lint": "eslint --ext .js,.ts, --fix ",
     "prepack": "nuxt-module-build",
     "prepare": "husky",
-    "semantic-release": "semantic-release",
+    "release": "npm publish && git push --follow-tags",
     "test": "cross-env NUXT_TELEMETRY_DISABLED=1 JITI_ESM_RESOLVE=1 pnpm nuxi prepare test/fixtures/basic && cross-env JITI_ESM_RESOLVE=1 vitest run --dir test",
     "typecheck": "nuxi typecheck"
   },
@@ -66,16 +66,21 @@
     "@nuxtjs/eslint-config-typescript": "12.1.0",
     "cross-env": "^7.0.3",
     "eslint": "8.57.1",
+    "eslint-plugin-vue": "^9.32.0",
     "husky": "9.1.7",
     "lint-staged": "^15.2.2",
     "nuxt": "3.14.1592",
     "pnpm": "9.14.2",
     "prettier": "3.3.3",
     "semantic-release": "^22.0.0",
-    "vitest": "^2.0.0"
+    "typescript": "^5.7.2",
+    "unstorage": "^1.13.1",
+    "vitest": "^2.0.0",
+    "vue": "^3.5.13"
   },
   "peerDependencies": {
     "svgo-loader": "^4.0.0",
+    "unstorage": "^1.13.1",
     "vue": ">=3.2.13",
     "vue-loader": "^17.0.0",
     "vue-svg-loader": "0.17.0-beta.2"
