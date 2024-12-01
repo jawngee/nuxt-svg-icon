@@ -1,29 +1,31 @@
-# `nuxt-svgo`
+![Foxy Image Logo](https://aspekt-media.b-cdn.net/logo.png)
+
+# @foxyimg/nuxt-svg-icon
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![license][license-src]][license-href]
 
-`nuxt-svgo` is a Nuxt module to load optimized SVG files as Vue components.
+`@foxyimg/nuxt-svg-icon` is a Nuxt module to load optimized SVG files as Vue components.
 
-Try it on [StackBlitz](https://stackblitz.com/edit/nuxt-svgo-playground?file=nuxt.config.ts)!
+This is a fork of [nuxt-svgo](https://github.com/cpsoinos/nuxt-svgo) by [Corey Psoinos](https://github.com/cpsoinos) with some modifications, mostly removing unnecessary CSS classes.
 
 ## Install
 
 ```sh
-npx nuxi@latest module add nuxt-svgo
+npx nuxi@latest module add @foxyimg/nuxt-svg-icon
 ```
 
 ## Usage
 
-Use the [default configuration](https://github.com/cpsoinos/nuxt-svgo/blob/b30c65b5e3d034a1cb198bf351355de34d02ac92/src/module.ts#L14-L26) by adding `'nuxt-svgo'` to the `modules` section of your Nuxt config.
+Use the [default configuration](https://github.com/cpsoinos/nuxt-svgo/blob/b30c65b5e3d034a1cb198bf351355de34d02ac92/src/module.ts#L14-L26) by adding `'@foxyimg/nuxt-svg-icon'` to the `modules` section of your Nuxt config.
 
 ```typescript
 // nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
 })
 ```
 
@@ -32,10 +34,7 @@ Then, in any `.vue` file, import your asset and use it as a component:
 ```vue
 <template>
   <div>
-    <!-- font size controls width & height by default: -->
     <IconHome class="text-xl" />
-    <!-- you can disable it: -->
-    <IconHome class="w-5 h-5" :fontControlled="false" />
   </div>
 </template>
 
@@ -44,14 +43,14 @@ Then, in any `.vue` file, import your asset and use it as a component:
 </script>
 ```
 
-Or, if you use **vite**, in any `.vue` file, simply use your icon's name with `svgo` prefix as component name:
+Or, if you use **vite**, in any `.vue` file, simply use your icon's name with `svg-icon` prefix as component name:
 
 ```vue
 <template>
   <div>
-    <SvgoHome class="text-xl" />
+    <SvgIconHome class="text-xl" />
     <!-- Or -->
-    <svgo-home class="text-xl" />
+    <svg-icon-home class="text-xl" />
   </div>
 </template>
 ```
@@ -63,7 +62,7 @@ It automatically imports your icons from `assets/icons/` folder by default. you 
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     autoImportPath: './assets/other-icons/',
   },
@@ -77,7 +76,7 @@ If you want to use auto import but you don't want to use the `nuxt-icon` compone
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     defaultImport: 'component',
   },
@@ -85,7 +84,7 @@ export default defineNuxtConfig({
 ```
 
 You can also use your own custom component instead of the built-in `nuxt-icon` component using the `customComponent` option.
-This custom component must have `icon` property, just like the `nuxt-icon` component [provided by nuxt-svgo](https://github.com/cpsoinos/nuxt-svgo/blob/main/src/runtime/components/nuxt-icon.vue).
+This custom component must have `icon` property, just like the `nuxt-icon` component [provided by @foxyimg/nuxt-svg-icon](https://github.com/jawngee/nuxt-svg-icon/blob/main/src/runtime/components/nuxt-icon.vue).
 
 Example:
 
@@ -94,7 +93,7 @@ Example:
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     customComponent: 'YourComponent',
   },
@@ -108,7 +107,7 @@ By default module registers all icons inside `autoImportPath` globally. This may
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     global: false,
   },
@@ -122,7 +121,7 @@ to disable auto importing, simply set `autoImportPath` to `false`:
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     autoImportPath: false,
   },
@@ -131,22 +130,22 @@ export default defineNuxtConfig({
 
 ### Subfolders
 
-The icons's component name will follow Nuxt's component prefix convention. Therefore, if prefix is turned on for your components, the component name for `assets/icons/admin/badge.svg`, for example, will be `svgo-admin-badge`:
+The icons's component name will follow Nuxt's component prefix convention. Therefore, if prefix is turned on for your components, the component name for `assets/icons/admin/badge.svg`, for example, will be `svg-icon-admin-badge`:
 
 ```html
-<svgo-admin-badge />
+<svg-icon-admin-badge />
 ```
 
 ### `componentPrefix`
 
-You can change the default prefix (`svgo`) to your custom prefix using `componentPrefix` option:
+You can change the default prefix (`svg-icon`) to your custom prefix using `componentPrefix` option:
 
 ```typescript
 // nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     componentPrefix: 'i',
   },
@@ -188,7 +187,7 @@ Use your own custom SVGO options:
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     svgoConfig: {
       multipass: true,
@@ -221,7 +220,7 @@ Disable SVGO entirely:
 import { defineNuxtConfig } from 'nuxt'
 
 export default defineNuxtConfig({
-  modules: ['nuxt-svgo'],
+  modules: ['@foxyimg/nuxt-svg-icon'],
   svgo: {
     svgo: false,
   },
@@ -276,57 +275,19 @@ Originally copied over from the [nuxt-icons module](https://github.com/gitFoxCod
 
 ### Component props
 
-- `filled`: use icon's original colors when `true`
-- `fontControlled`: you can disable the default behavior of scaling by font size by setting this prop to `false`
 - `icon`: the component that `nuxt-icon` will render as. this is used internally to provide control over the icon.
+- `width`: Any valid CSS width value.  If width is provided but height is not, height will be set to auto.
+- `height`: Any valid CSS height value.  If height is provided but width is not, width will be set to auto.
+- `fill`: Any valid CSS color value.
+- `stroke`: Any valid CSS color value.
 
-## Migrating from v1.x to v2.x
+The `width`, `height`, `fill`, and `stroke` props are optional and should not be used in favor of CSS classes or using something utility framework like Tailwind or UnoCSS.  They are provided for convenience.
 
-If you were using the `nuxt-icon` component before, you have to change your code like this:
-
-```html
-<!-- from: -->
-<nuxt-icon name="home" filled />
-<nuxt-icon name="special/home" filled />
-<!-- to: -->
-<svgo-home filled />
-<svgo-special-home filled />
-```
-
-## Migrating from v2.x to v3.x
-
-v3 now uses an opinionated default config for svgo by default, to make it work like before simply pass `{}` to `svgoConfig` option:
-
-```ts
-export default defineNuxtConfig({
-  // ...
-  svgo: {
-    svgoConfig: {},
-  },
-})
-```
-
-also since v3 `simpleAutoImport` option is removed and `defaultImport` is changed to `componentext`. if you were using the following code, and relying on the `defaultImport`, change it:
-
-```vue
-<template>
-  <div>
-    <IconHome class="text-xl" />
-  </div>
-</template>
-
-<script setup lang="ts">
-  // change this:
-  import IconHome from '~/assets/icon-home.svg'
-  // to this:
-  import IconHome from '~/assets/icon-home.svg?component'
-</script>
-```
 
 ## Development
 
 - Run `pnpm dev:prepare` to generate type stubs.
-- Use `pnpm dev` to start [playground](./playground) in development mode.
+- Use `pnpm dev` to start [playground](playground) in development mode.
 
 ## Authors
 
@@ -338,21 +299,27 @@ also since v3 `simpleAutoImport` option is removed and `defaultImport` is change
 
 - Github: [@jd1378](https://github.com/jd1378)
 
+**Jon Gilkison**
+
+- Github: [@jawngee](https://github.com/jawngee)
+
 ## Show your support
 
 Give a ⭐️ if this project helped you!
 
 ## 📝 License
 
-Copyright © 2024 [Corey Psoinos](https://github.com/cpsoinos).
+Original `nuxt-svgo` code copyright © 2024 [Corey Psoinos](https://github.com/cpsoinos).
+
+Copyright © 2024 [Jon Gilkison](https://github.com/jawngee).
 
 This project is [MIT](https://github.com/cpsoinos/nuxt-svgo/blob/main/LICENSE) licensed.
 
 <!-- Badges -->
 
-[npm-version-src]: https://img.shields.io/npm/v/nuxt-svgo/latest.svg?style=flat-square
-[npm-version-href]: https://npmjs.com/package/nuxt-svgo
-[npm-downloads-src]: https://img.shields.io/npm/dt/nuxt-svgo.svg?style=flat-square
-[npm-downloads-href]: https://npmjs.com/package/nuxt-svgo
-[license-src]: https://img.shields.io/npm/l/nuxt-svgo.svg?style=flat-square
-[license-href]: https://github.com/cpsoinos/nuxt-svgo/blob/main/LICENSE
+[npm-version-src]: https://img.shields.io/npm/v/@foxyimg/url-builder/latest.svg?style=flat-square
+[npm-version-href]: https://npmjs.com/package/@foxyimg/url-builder
+[npm-downloads-src]: https://img.shields.io/npm/dt/@foxyimg/url-builder.svg?style=flat-square
+[npm-downloads-href]: https://npmjs.com/package/@foxyimg/url-builder
+[license-src]: https://img.shields.io/npm/l/@foxyimg/url-builder.svg?style=flat-square
+[license-href]: https://github.com/cpsoinos/@foxyimg/url-builder/blob/main/LICENSE
